@@ -6,7 +6,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 import InstagramIcon from '@mui/icons-material/Instagram';
-// https://react-select.com/home  //https://react-select.com/styles
 
 
 

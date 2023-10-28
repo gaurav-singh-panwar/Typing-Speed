@@ -14,7 +14,6 @@ const LoginForm = ({handleModalClose}) => {
 
     const handleSubmit = ()=>{
       if(!email || !password){
-        // alert('fill all details')
         toast.warning('Please fill all details...')
       }
       auth.signInWithEmailAndPassword(email,password).then((res)=>{

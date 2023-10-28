@@ -6,7 +6,6 @@ import Stats from './Stats';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useNavigate } from 'react-router-dom';
 
-// childNodes property is a property of a DOM element 
 
 const TypingBox = () => {
 
@@ -67,17 +66,13 @@ const TypingBox = () => {
     }
 
 
-
-
-    // creating an array of references for each character element within each word.
     const wordsSpanRef = useMemo(() => {
-        //useRef cant use inside callback function so used this but both have same funtionality :)
         return Array(wordsArray.length).fill(0).map(i => createRef(null))
     }, [wordsArray])
 
     const resetTest = () => {
-        clearInterval(intervalId)//clear the interval
-        setCountDown(testTime);//change the test time
+        clearInterval(intervalId)
+        setCountDown(testTime);
         setTestStart(false)
         setTestEnd(false)
         setCurrentWordIndex(0);
@@ -93,7 +88,7 @@ const TypingBox = () => {
                 return j.className = "";
             })
         ))
-        wordsSpanRef[0].current.childNodes[0].className = 'current' //cursor at first position left
+        wordsSpanRef[0].current.childNodes[0].className = 'current'
     }
 
     const calculateWPM = () => {
@@ -113,41 +108,34 @@ const TypingBox = () => {
             setTestStart(true)
         }
 
-
-        // Get the current word's reference
         const currentWordRef = wordsSpanRef[currentWordIndex].current;
         const allCurrentChars = wordsSpanRef[currentWordIndex].current.childNodes
 
-        // retrieves all the child nodes (individual characters) of the current word from the wordsSpanRef array
         if (currentWordRef) {
             //logic for space
-            if (e.keyCode === 32) {//keycode for space - 32
+            if (e.keyCode === 32) {
 
                 let correctCharsInWord = wordsSpanRef[currentWordIndex].current.querySelectorAll('.correct')
 
                 if (correctCharsInWord.length === allCurrentChars.length) {
-                    setCorrectWords(correctWords + 1) //entair word typed correctly ready to move to next word
+                    setCorrectWords(correctWords + 1) 
                 }
 
                 if (allCurrentChars.length <= currentCharIndex) {
-                    //remove cursor from last place in a node
                     allCurrentChars[currentCharIndex - 1].classList.remove('current-right')
                 } else {
-                    setMissedChars(missedChars + (allCurrentChars.length - currentCharIndex)) // gives how many chars missed
-                    //remove cursor from inbetween of node
+                    setMissedChars(missedChars + (allCurrentChars.length - currentCharIndex)) 
                     allCurrentChars[currentCharIndex].classList.remove('current')
                 }
 
-                wordsSpanRef[currentWordIndex + 1].current.childNodes[0].className = 'current';//cursor visible at every first letter of word
-
-                setCurrentCharIndex(0) //repeat from 0 if jump to nextword
-                setCurrentWordIndex(currentWordIndex + 1)  //if space happen jump to next word.
+                wordsSpanRef[currentWordIndex + 1].current.childNodes[0].className = 'current';
+                setCurrentCharIndex(0) 
+                setCurrentWordIndex(currentWordIndex + 1)  
                 return;
             }
         }
 
-        //logic for backspace
-        if (e.keyCode === 8) { // keycode for backspace - 8
+        if (e.keyCode === 8) {
             if (currentCharIndex !== 0) {
 
                 if (allCurrentChars.length === currentCharIndex) {

@@ -41,7 +41,6 @@ const Stats = ({wpm, accuracy, correctChars, incorrectChars, missedChars, extraC
 
     }
 
-    //check user is logged in or not(existed or not)
     useEffect(() => {
         if (auth.currentUser) {
             pushDataToDB();

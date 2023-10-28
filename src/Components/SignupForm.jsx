@@ -51,7 +51,7 @@ const SignupForm = () => {
             color : theme.textColor
           }
         }}
-        inputProps={{ //change color of input
+        inputProps={{
           style : {
             color : theme.textColor
           }
@@ -62,12 +62,12 @@ const SignupForm = () => {
         type='password'
         label = 'Enter Password'
         onChange={(e)=>setPassword(e.target.value)}
-        InputLabelProps={{ //change color of label
+        InputLabelProps={{
           style : {
             color : theme.textColor
           }
         }}
-        inputProps={{ //change color of input
+        inputProps={{ 
           style : {
             color : theme.textColor
           }
@@ -78,12 +78,12 @@ const SignupForm = () => {
         type='password'
         label = 'Enter Confirm Password'
         onChange={(e)=>setConfirmPassword(e.target.value)}
-        InputLabelProps={{ //change color of label
+        InputLabelProps={{ 
           style : {
             color : theme.textColor
           }
         }}
-        inputProps={{ //change color of input
+        inputProps={{ 
           style : {
             color : theme.textColor
           }
